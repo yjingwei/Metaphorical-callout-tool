@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1359</width>
+    <height>974</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_2">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item row="0" column="0">
+     <widget class="QFrame" name="frame_tagging">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="2" column="0">
+        <widget class="QFrame" name="frame_pic">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QLabel" name="label_showimage">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>661</width>
+            <height>701</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>showimage</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButton_pre_pic">
+          <property name="geometry">
+           <rect>
+            <x>70</x>
+            <y>740</y>
+            <width>93</width>
+            <height>28</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>上一个</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButton_next_pic">
+          <property name="geometry">
+           <rect>
+            <x>240</x>
+            <y>740</y>
+            <width>93</width>
+            <height>28</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>下一个</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="get_whether_annotation">
+          <property name="geometry">
+           <rect>
+            <x>450</x>
+            <y>740</y>
+            <width>151</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_finish">
+          <property name="geometry">
+           <rect>
+            <x>130</x>
+            <y>660</y>
+            <width>231</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QFrame" name="frame_show">
+          <property name="geometry">
+           <rect>
+            <x>670</x>
+            <y>0</y>
+            <width>664</width>
+            <height>792</height>
+           </rect>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QLabel" name="label_category_pic">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>651</width>
+             <height>351</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>catagory</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_adj_pic">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>440</y>
+             <width>631</width>
+             <height>301</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>adj</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label1">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>380</y>
+             <width>41</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>隐喻:</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label6">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>750</y>
+             <width>41</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>隐喻:</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label7">
+           <property name="geometry">
+            <rect>
+             <x>260</x>
+             <y>750</y>
+             <width>41</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>喻底:</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label2">
+           <property name="geometry">
+            <rect>
+             <x>180</x>
+             <y>380</y>
+             <width>51</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>目标域:</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label4">
+           <property name="geometry">
+            <rect>
+             <x>400</x>
+             <y>380</y>
+             <width>41</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>源域:</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label5">
+           <property name="geometry">
+            <rect>
+             <x>150</x>
+             <y>410</y>
+             <width>81</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>目标域类别:</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label3">
+           <property name="geometry">
+            <rect>
+             <x>370</x>
+             <y>410</y>
+             <width>72</width>
+             <height>15</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>源域类别:</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_metaphor_fix1">
+           <property name="geometry">
+            <rect>
+             <x>60</x>
+             <y>380</y>
+             <width>72</width>
+             <height>15</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>TextLabel</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_target_fix">
+           <property name="geometry">
+            <rect>
+             <x>260</x>
+             <y>380</y>
+             <width>72</width>
+             <height>15</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>TextLabel</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_target_category_fix">
+           <property name="geometry">
+            <rect>
+             <x>260</x>
+             <y>410</y>
+             <width>72</width>
+             <height>15</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>TextLabel</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_source_fix">
+           <property name="geometry">
+            <rect>
+             <x>460</x>
+             <y>380</y>
+             <width>72</width>
+             <height>15</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>TextLabel</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_source_category_fix">
+           <property name="geometry">
+            <rect>
+             <x>460</x>
+             <y>410</y>
+             <width>72</width>
+             <height>15</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>TextLabel</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_metaphor_fix2">
+           <property name="geometry">
+            <rect>
+             <x>70</x>
+             <y>750</y>
+             <width>72</width>
+             <height>15</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>TextLabel</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_yudi_fix">
+           <property name="geometry">
+            <rect>
+             <x>310</x>
+             <y>650</y>
+             <width>72</width>
+             <height>15</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QFrame" name="frame_3">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>100</height>
+       </size>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_3">
+       <item row="3" column="6">
+        <widget class="QLineEdit" name="lineEdit_source_category"/>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="yudi">
+         <property name="text">
+          <string>喻底</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="7">
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="3" column="4" colspan="2">
+        <widget class="QLabel" name="source_category">
+         <property name="text">
+          <string>源域类别</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="3">
+        <widget class="QLineEdit" name="lineEdit_source"/>
+       </item>
+       <item row="0" column="5" colspan="2">
+        <widget class="QLineEdit" name="lineEdit_target_category"/>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLineEdit" name="lineEdit_yudi"/>
+       </item>
+       <item row="3" column="2">
+        <widget class="QLabel" name="source">
+         <property name="text">
+          <string>源域</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="3">
+        <widget class="QLineEdit" name="lineEdit_target"/>
+       </item>
+       <item row="0" column="1">
+        <widget class="QRadioButton" name="radioButton_0">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="metaphor">
+         <property name="text">
+          <string>隐喻</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QLabel" name="target">
+         <property name="text">
+          <string>目标域</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="7">
+        <widget class="QPushButton" name="pushButton_confirm">
+         <property name="text">
+          <string>标注完成</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="4">
+        <widget class="QLabel" name="targetcategory">
+         <property name="text">
+          <string>目标域类别</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QRadioButton" name="radioButton_1">
+         <property name="text">
+          <string>1</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1359</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
