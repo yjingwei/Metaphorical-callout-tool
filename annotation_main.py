@@ -8,10 +8,13 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog, QTableWidget
     QHeaderView
 import numpy as np
 
-start = 0
-end = 300
-filename = "iF_去重.csv"
+start = 301
+end = 400
+filename = "../../Metaphor/iF_去重.csv"
+    #"final_iF{0}_{1}.csv".format(start,end)
+#"../../Metaphor/iF_去重.csv"
 pic_file = r"D:/yjw/iFYTEK_pics/"
+outputfile ="final_iF{0}_{1}.csv".format(start,end)
     #"/Users/jingwei.yu/Desktop/隐喻标注_中文广告/iFYTEK_pics/"
 
 def subdata(filename,start,end):
@@ -32,8 +35,8 @@ class MyClass(QMainWindow, Ui_MainWindow):
         super(MyClass, self).__init__(parent)
         self.data = pd.read_csv(filename, encoding='utf-8')[start:end]
 
-
-        self.data['annotation'] = 0
+        if 'annotation' not in self.data.columns:
+            self.data['annotation'] = 0
         self.subdata()
         self.index = -1
         # self.Metaphor_fix1 = ""
@@ -56,6 +59,8 @@ class MyClass(QMainWindow, Ui_MainWindow):
 
     def nextimage(self):
         self.index = self.index + 1
+        # print(self.index)
+        # print(self.len)
         if(self.index >= self.len):
             msg_box = QMessageBox(QMessageBox.Warning, '恭喜你', '完成标注')
             msg_box.exec_()
@@ -66,9 +71,9 @@ class MyClass(QMainWindow, Ui_MainWindow):
         img_path = os.path.join(pic_file, self.df_diff.iloc[self.index, 1])
         print("img_path====", img_path)
         if(int(self.df_diff.iloc[self.index, 11]) == 1):
-            self.get_whether_annotation.setText(_translate("MainWindow", "Yes!{0}/{1}".format(self.index,self.len)))
+            self.get_whether_annotation.setText(_translate("MainWindow", "Yes!{0}/{1}".format(self.index+1,self.len)))
         else:
-            self.get_whether_annotation.setText(_translate("MainWindow", "NoNoNo!{0}/{1}".format(self.index,self.len)))
+            self.get_whether_annotation.setText(_translate("MainWindow", "NoNoNo!{0}/{1}".format(self.index+1,self.len)))
         #imgName, imgType = QFileDialog.getOpenFileName(self, "打开图片", "", "*.jpg;;*.png;;All Files(*)")
 
         self.metaphor_fix1 = str(self.df_diff.iloc[self.index, 3])
@@ -76,7 +81,9 @@ class MyClass(QMainWindow, Ui_MainWindow):
         self.target_category_fix = str(self.df_diff.iloc[self.index, 5])
         self.source_fix = str(self.df_diff.iloc[self.index, 6])
         self.source_category_fix = str(self.df_diff.iloc[self.index, 7])
-        self.sentiment_fix = str(self.df_diff.iloc[self.index, 8])
+        self.sentiment_fix = str(int(self.df_diff.iloc[self.index, 8]))
+        # if (self.sentiment_fix != self.sentiment_fix or self.sentiment_fix != "0" or self.sentiment_fix != "1" or self.sentiment_fix != "-1"):
+        #     self.sentiment_fix = "2"
         self.metaphor_fix2 = str(int(self.df_diff.iloc[self.index, 9]))
         if (self.metaphor_fix2 != self.metaphor_fix2):
             self.metaphor_fix2 = 0
@@ -91,6 +98,17 @@ class MyClass(QMainWindow, Ui_MainWindow):
         self.label_source_category_fix.setText(_translate("MainWindow", self.source_category_fix))
         self.label_metaphor_fix2.setText(_translate("MainWindow", str(self.metaphor_fix2)))
         self.label_yudi_fix.setText(_translate("MainWindow", self.yudi_fix))
+
+        if(self.sentiment_fix == "-1"):
+            self.radioButton_sentiment_3.setChecked(True)
+        elif(self.sentiment_fix == "0"):
+            self.radioButton_sentiment_2.setChecked(True)
+        elif (self.sentiment_fix == "1"):
+            self.radioButton_sentiment_1.setChecked(True)
+        else:
+            self.radioButton_sentiment_3.setChecked(False)
+            self.radioButton_sentiment_2.setChecked(False)
+            self.radioButton_sentiment_1.setChecked(False)
 
         self.setdata1()
         self.setdata2()
@@ -117,9 +135,9 @@ class MyClass(QMainWindow, Ui_MainWindow):
         img_path = os.path.join(pic_file,
                                 self.df_diff.iloc[self.index, 1])
         if(int(self.df_diff.iloc[self.index, 11]) == 1):
-            self.get_whether_annotation.setText(_translate("MainWindow", "Yes!{0}/{1}".format(self.index,self.len)))
+            self.get_whether_annotation.setText(_translate("MainWindow", "Yes!{0}/{1}".format(self.index+1,self.len)))
         else:
-            self.get_whether_annotation.setText(_translate("MainWindow", "NoNoNo快点标吧 还剩下!{0}/{1}".format(self.index,self.len)))
+            self.get_whether_annotation.setText(_translate("MainWindow", "NoNoNo快点标吧 还剩下!{0}/{1}".format(self.index+1,self.len)))
         # imgName, imgType = QFileDialog.getOpenFileName(self, "打开图片", "", "*.jpg;;*.png;;All Files(*)")
 
         self.metaphor_fix1 = str(self.df_diff.iloc[self.index, 3])
@@ -127,8 +145,10 @@ class MyClass(QMainWindow, Ui_MainWindow):
         self.target_category_fix = str(self.df_diff.iloc[self.index, 5])
         self.source_fix = str(self.df_diff.iloc[self.index, 6])
         self.source_category_fix = str(self.df_diff.iloc[self.index, 7])
-        self.sentiment_fix = str(self.df_diff.iloc[self.index, 8])
+        self.sentiment_fix = str(int(self.df_diff.iloc[self.index, 8]))
         self.metaphor_fix2 = str(self.df_diff.iloc[self.index, 9])
+        if (self.metaphor_fix2 != self.metaphor_fix2):
+            self.metaphor_fix2 = 0
         self.yudi_fix = str(self.df_diff.iloc[self.index, 10])
 
         jpg = QtGui.QPixmap(img_path).scaled(self.label_showimage.width(), self.label_showimage.height())
@@ -141,8 +161,20 @@ class MyClass(QMainWindow, Ui_MainWindow):
         self.label_metaphor_fix2.setText(_translate("MainWindow", self.metaphor_fix2))
         self.label_yudi_fix.setText(_translate("MainWindow", self.yudi_fix))
 
+
         self.setdata1()
         self.setdata2()
+
+        if (self.sentiment_fix == "-1"):
+            self.radioButton_sentiment_3.setChecked(True)
+        elif (self.sentiment_fix == "0"):
+            self.radioButton_sentiment_2.setChecked(True)
+        elif (self.sentiment_fix == "1"):
+            self.radioButton_sentiment_1.setChecked(True)
+        else:
+            self.radioButton_sentiment_3.setChecked(False)
+            self.radioButton_sentiment_2.setChecked(False)
+            self.radioButton_sentiment_1.setChecked(False)
 
     def setdata2(self):
         if self.radioButton_1.isChecked()==True:
@@ -181,7 +213,10 @@ class MyClass(QMainWindow, Ui_MainWindow):
         self.lineEdit_target_category.setText(_translate("MainWindow", self.target_category_fix))
         self.lineEdit_source.setText(_translate("MainWindow", self.source_fix))
         self.lineEdit_source_category.setText(_translate("MainWindow", self.source_category_fix))
-        self.lineEdit_yudi.setText(_translate("MainWindow", ""))
+        if self.yudi_fix == 'nan':
+            self.lineEdit_yudi.setText(_translate("MainWindow", ""))
+        else:
+            self.lineEdit_yudi.setText(_translate("MainWindow", self.yudi_fix))
 
     def listento2(self):
         _translate = QtCore.QCoreApplication.translate
@@ -236,16 +271,23 @@ class MyClass(QMainWindow, Ui_MainWindow):
         self.df_diff.loc[self.index, 'Source category'] = self.source_category_fix
         self.df_diff.loc[self.index, 'yudi'] = self.yudi_fix
         self.df_diff.loc[self.index, 'annotation'] = 1
-
+        #
         if (int(self.df_diff.iloc[self.index, 11]) == 1):
-            self.get_whether_annotation.setText(_translate("MainWindow", "Yes!{0}/{1}".format(self.index,self.len)))
+            self.get_whether_annotation.setText(_translate("MainWindow", "Yes!{0}/{1}".format(self.index+1,self.len)))
         else:
-            self.get_whether_annotation.setText(_translate("MainWindow", "NoNONo{0}/{1}".format(self.index,self.len)))
+            self.get_whether_annotation.setText(_translate("MainWindow", "NoNONo{0}/{1}".format(self.index+1,self.len)))
         #if self.index % 3 ==0:
         self.mergedata()
         # self.df_diff.to_csv("diff{}.csv".format(self.index),index=False)
         # self.radioButton_0.setChecked(False)
         # self.radioButton_1.setChecked(False)
+        if self.radioButton_sentiment_1.isChecked() == True:
+            self.df_diff.loc[self.index, 'sentiment'] = 1
+        elif self.radioButton_sentiment_2.isChecked() == True:
+            self.df_diff.loc[self.index, 'sentiment'] = 0
+        elif self.radioButton_sentiment_2.isChecked() == True:
+            self.df_diff.loc[self.index, 'sentiment'] = -1
+
 
 
 
@@ -254,7 +296,7 @@ class MyClass(QMainWindow, Ui_MainWindow):
         # self.data['yudi'].fillna(int(0),inplace=True)
         self.data['Metaphor'] = self.data['Metaphor'].apply(lambda x : int(x))
         self.data['Metaphor_2'] = self.data['Metaphor_2'].apply(lambda x: int(x))
-        #print(self.data.head(10))
+        # print(self.data.head(10))
         self.df_diff = self.data[self.data.Metaphor != self.data.Metaphor_2].reset_index(drop=True)
         self.df_same = self.data[self.data.Metaphor == self.data.Metaphor_2].reset_index(drop=True)
         self.len = len(self.df_diff)
@@ -263,7 +305,7 @@ class MyClass(QMainWindow, Ui_MainWindow):
     def mergedata(self):
         self.final = pd.concat([self.df_diff, self.df_same], axis=0)
         # self.final.to_csv('final_iF_{}.csv'.format(self.index), index=False)
-        self.final.to_csv('final_iF.csv', index=False)
+        self.final.to_csv(outputfile, index=False)
 
 
 

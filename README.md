@@ -1,4 +1,4 @@
-<video src="https://github.com/yjingwei/Metaphorical-callout-tool/annotation.mp4"></video>
+<video src="https://github.com/yjingwei/Metaphorical-callout-tool/blob/main/annotation.mp4"></video>
 
 # 说明
 
